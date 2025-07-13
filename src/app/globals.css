@@ -1,24 +1,55 @@
 @import "tailwindcss";
 
+/* Light mode colors */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f1e9;     /* Soft beige */
+  --foreground: #4b3b2b;     /* Deep warm brown */
+  --primary: #c2b280;        /* Warm tan */
+  --primary-hover: #a1887f;  /* Darker tan for hover */
+  --accent: #d6c4a1;         /* Light gold/beige accent */
+  --muted: #8b7a6b;          /* Muted brown for secondary text */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
+/* Dark mode colors */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2b2620;   /* Dark rich brown */
+    --foreground: #d6c4a1;   /* Light beige text */
+    --primary: #a1887f;      /* Tan */
+    --primary-hover: #c2b280; /* Lighter tan on hover */
+    --accent: #4b3b2b;       /* Deep brown accent */
+    --muted: #8b7a6b;        /* Muted brown */
+  }
+}
+/* Keyframes for fade-in and upward animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+/* Tailwind animation utility for fade-up */
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Apply base styles */
 body {
   background: var(--background);
   color: var(--foreground);
